@@ -2,7 +2,6 @@ import cv2
 import numpy as np
 from time import sleep
 
-# Constants
 MIN_CONTOUR_AREA = 500
 WIDTH_MIN = 80
 HEIGHT_MIN = 80
@@ -83,7 +82,7 @@ def detect_vehicles(frame, mask, vehicles, vehicle_count, next_vehicle_id):
     for vehicle_id, vehicle_data in vehicles.items():
         vehicle_data['last_seen'] += 1
         vehicle_data['prev_y'] = vehicle_data['center'][1]
-        if vehicle_data['last_seen'] > 10:  # Remove if not seen for 10 frames
+        if vehicle_data['last_seen'] > 10:
             vehicles_to_remove.append(vehicle_id)
 
     for vehicle_id in vehicles_to_remove:
